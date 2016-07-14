@@ -1,6 +1,6 @@
 angular.module('ng-walkthrough', [])
-    .directive("walkthrough", ['$log', '$timeout', '$window', '$injector', '$compile',
-        function($log, $timeout, $window, $injector, $compile) {
+    .directive("walkthrough", ['$log', '$timeout', '$window', '$injector', '$compile', '$location',
+        function($log, $timeout, $window, $injector, $compile, $location) {
             var DOM_WALKTHROUGH_CLASS = "walkthrough-background";
             var DOM_WALKTHROUGH_TRANSPARENCY_TEXT_CLASS = ".walkthrough-text";
             var DOM_WALKTHROUGH_TIP_TEXT_CLASS = ".walkthrough-tip-text-box";
@@ -281,7 +281,7 @@ angular.module('ng-walkthrough', [])
                             '</defs>' +
                             '<path d="M' + startLeft + ',' + startTop + ' Q' + startLeft + ',' + endTop + ' ' + endLeft + ',' + endTop + '"' +
                             'style="stroke:#fff; stroke-width: 2px; fill: none;' +
-                            'marker-end: url(#arrow);"/>' +
+                            'marker-end: url('+$location.absUrl()+'#arrow);"/>' +
                             '/>' +
                             '</svg>';
 
